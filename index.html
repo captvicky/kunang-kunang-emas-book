@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LITTLE LAB STORIES</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- 1. PENGATURAN DASAR --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #050505; /* Hitam pekat */
+            color: #ffffff;
+            font-family: 'Orbitron', sans-serif; /* Font gaya sci-fi */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Mencegah scrollbar muncul */
+            position: relative;
+        }
+
+        /* --- 2. EFEK LASER BERGERAK --- */
+        /* Garis Laser Horizontal */
+        .laser-h {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00f3ff, transparent);
+            box-shadow: 0 0 10px #00f3ff;
+            opacity: 0.5;
+            animation: scan-vertical 4s linear infinite;
+            z-index: 1;
+        }
+
+        /* Garis Laser Vertikal */
+        .laser-v {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, #ff00ff, transparent);
+            box-shadow: 0 0 10px #ff00ff;
+            opacity: 0.5;
+            animation: scan-horizontal 6s linear infinite;
+            z-index: 1;
+        }
+
+        /* Animasi pergerakan laser */
+        @keyframes scan-vertical {
+            0% { top: -10%; }
+            100% { top: 110%; }
+        }
+
+        @keyframes scan-horizontal {
+            0% { left: -10%; }
+            100% { left: 110%; }
+        }
+
+        /* Latar Grid Halus */
+        .grid-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 243, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 0;
+        }
+
+        /* --- 3. KONTEN UTAMA --- */
+        .container {
+            text-align: center;
+            z-index: 10; /* Agar berada di atas laser */
+            padding: 20px;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            background: rgba(5, 5, 5, 0.85); /* Sedikit transparan */
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
+            backdrop-filter: blur(5px);
+            max-width: 600px;
+            width: 90%;
+        }
+
+        /* Judul 404 dengan Efek Glitch */
+        h1 {
+            font-size: 8rem;
+            font-weight: 900;
+            color: #ffffff;
+            text-shadow: 
+                2px 2px 0px #ff00ff, 
+                -2px -2px 0px #00f3ff;
+            margin-bottom: 10px;
+            letter-spacing: 5px;
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Sub-judul */
+        p {
+            font-size: 1.2rem;
+            color: #00f3ff;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* --- 4. TOMBOL (BUTTON) --- */
+        .btn-home {
+            display: inline-block;
+            text-decoration: none;
+            color: #050505;
+            background-color: #00f3ff; /* Warna Cyan Neon */
+            padding: 15px 40px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 2px solid #00f3ff;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efek Hover (Saat kursor diarahkan) */
+        .btn-home:hover {
+            background-color: transparent;
+            color: #00f3ff;
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.8), inset 0 0 10px rgba(0, 243, 255, 0.5);
+            text-shadow: 0 0 5px #00f3ff;
+        }
+
+        /* Agar responsif di HP */
+        @media (max-width: 600px) {
+            h1 { font-size: 5rem; }
+            p { font-size: 1rem; }
+            .btn-home { padding: 12px 30px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-bg"></div>
+    <div class="laser-h"></div> <div class="laser-v"></div> <div class="container">
+        <h1>lost page</h1>
+        <p>Your are lost, Please get to Home</p>
+        
+        <a href="https://littlelabstories.com" class="btn-home">
+            Back to Home
+        </a>
+    </div>
+
+</body>
+</html>
